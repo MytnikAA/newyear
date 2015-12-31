@@ -5,7 +5,10 @@ while true;
 # for i in {1..2016};
 do
 	i=`shuf -i 0-$len -n 1`;
-	echo -en "\U${SNOWCODE[$i]} ";
-	# latency=0.0`shuf -i 3-9 -n 1`;
-	# sleep $latency;
+	# colorf=`shuf -i 10-50 -n 1`;
+	# colorb=`shuf -i 10-50 -n 1`;
+	# echo $colorf $colorb
+	echo -en "\E[4$(( $RANDOM * 6 / 32767 + 1 ))m \U${SNOWCODE[$i]} ";
+	latency=0.0`shuf -i 3-9 -n 1`;
+	sleep $latency;
 done;
